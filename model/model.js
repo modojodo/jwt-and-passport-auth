@@ -21,4 +21,6 @@ UserModel.pre('save',
     next();
   });
 
+UserSchema.methods.isValidPassword = (password) => bcrypt.compare(password, this.password);
+
 module.exports = UserModel;
